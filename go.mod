@@ -31,3 +31,11 @@ require (
 	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+
+replace (
+    github.com/Igwa-Xp/igwa-api-gateway/pkg/auth => ./pkg/auth
+    github.com/Igwa-Xp/igwa-api-gateway/pkg/config => ./pkg/config
+    github.com/Igwa-Xp/igwa-api-gateway/pkg/experience => ./pkg/experience
+    github.com/Igwa-Xp/igwa-api-gateway/pkg/organizer => ./pkg/organizer
+)
