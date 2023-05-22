@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "./pkg/auth/pb";
+
+service AuthService {
+  rpc Register(RegisterRequest) returns (RegisterResponse) {}
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+  rpc Validate(ValidateRequest) returns (ValidateResponse) {}
+  rpc SocialAuth(SocialAuthRequest) returns (SocialAuthResponse) {}
+  rpc ForgotPassword(ForgotPasswordRequest) returns (ForgotPasswordResponse) {}
+}
+
+message RegisterRequest {
+  string username = 1;
+  string password = 2;
+  string email = 3;
+  repeated string roles = 4;
+  // Add any additional fields as needed
+}
+
+message RegisterResponse {
+  bool success = 1;
+  string message = 2;
+  // Add any additional fields as needed
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+  // Add any additional fields as needed
+}
+
+message LoginResponse {
+  bool success = 1;
+  string message = 2;
+  string token = 3;
+  // Add any additional fields as needed
+}
+
+message ValidateRequest {
+  string token = 1;
+  // Add any additional fields as needed
+}
+
+message ValidateResponse {
+  int64 status = 1;
+  string error = 2;
+  int64 userId = 3;
+  // Add any additional fields as needed
+}
+
+message SocialAuthRequest {
+  string provider = 1;
+  string accessToken = 2;
+  // Add any additional fields as needed
+}
+
+message SocialAuthResponse {
+  bool success = 1;
+  string message = 2;
+  string token = 3;
+  // Add any additional fields as needed
+}
+
+message ForgotPasswordRequest {
+  string email = 1;
+  // Add any additional fields as needed
+}
+
+message ForgotPasswordResponse {
+  bool success = 1;
+  string message = 2;
+  // Add any additional fields as needed
+}
+
+// Add any other messages, services, or enums as needed

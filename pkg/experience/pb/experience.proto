@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package experience;
+
+option go_package = "./pkg/experience/pb";
+
+service ExperienceService {
+  rpc CreateExperience(CreateExperienceRequest) returns (CreateExperienceResponse) {}
+  rpc UpdateExperience(UpdateExperienceRequest) returns (UpdateExperienceResponse) {}
+  rpc DeleteExperience(DeleteExperienceRequest) returns (DeleteExperienceResponse) {}
+}
+
+message CreateExperienceRequest {
+  string title = 1;
+  string description = 2;
+  repeated string images = 3;
+  string altImage = 4;
+  double price = 5;
+  int32 duration = 6;
+  string location = 7;
+  string category = 8;
+  repeated string tags = 9;
+  // Add any other relevant fields as needed
+}
+
+message Experience {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  repeated string images = 4;
+  string altImage = 5;
+  double price = 6;
+  int32 duration = 7;
+  string location = 8;
+  string category = 9;
+  repeated string tags = 10;
+  // Add any other relevant fields as needed
+}
+
+message CreateExperienceResponse {
+  bool success = 1;
+  string message = 2;
+  // Add any additional fields as needed
+}
+
+message UpdateExperienceRequest {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  repeated string categories = 4;
+  string organizerId = 5;
+  repeated string images = 6;
+  string altImage = 7;
+  double price = 8;
+  int32 duration = 9;
+  string location = 10;
+  string category = 11;
+  repeated string tags = 12;
+  // Add any additional fields as needed
+}
+
+message UpdateExperienceResponse {
+  bool success = 1;
+  string message = 2;
+  // Add any additional fields as needed
+}
+
+message DeleteExperienceRequest {
+  string id = 1;
+  // Add any additional fields as needed
+}
+
+message DeleteExperienceResponse {
+  bool success = 1;
+  string message = 2;
+  // Add any additional fields as needed
+}
+
+// Add any other messages, services, or enums as needed

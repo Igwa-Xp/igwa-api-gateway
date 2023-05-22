@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package organizer;
+
+option go_package = "./pkg/organizer/pb";
+
+service OrganizerService {
+  rpc CreateOrganizer(CreateOrganizerRequest) returns (CreateOrganizerResponse) {}
+  rpc UpdateOrganizer(UpdateOrganizerRequest) returns (UpdateOrganizerResponse) {}
+  rpc DeleteOrganizer(DeleteOrganizerRequest) returns (DeleteOrganizerResponse) {}
+}
+
+message CreateOrganizerRequest {
+    string name = 1;
+    string email = 2;
+    repeated string phoneNumbers = 3;
+    string organizerType = 4;
+    string kycDocumentType = 5;
+    string kycDocumentNumber = 6;
+    // Add any additional KYC-related fields as needed
+  }
+  
+
+message CreateOrganizerResponse {
+  bool success = 1;
+  string message = 2;
+
+  // Add any additional fields as needed
+}
+
+message UpdateOrganizerRequest {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  repeated string phoneNumbers = 4;
+  // Add any additional fields as needed
+}
+
+message UpdateOrganizerResponse {
+  bool success = 1;
+  string message = 2;
+  // Add any additional fields as needed
+}
+
+message DeleteOrganizerRequest {
+  string id = 1;
+  // Add any additional fields as needed
+}
+
+message DeleteOrganizerResponse {
+  bool success = 1;
+  string message = 2;
+  // Add any additional fields as needed
+}
